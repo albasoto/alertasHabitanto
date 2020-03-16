@@ -151,7 +151,7 @@
                       </div>
                       <div class="col-md-4">
                         <div class="btn-group">
-                          <input type="text" class="form-control" name="filtroBusqueda" [(ngModel)]="filtroBusqueda"  placeholder="Buscar..." />
+                          <input type="text" class="form-control" name="filtroBusqueda"   placeholder="Buscar..." />
                           <button class="btn btn-primary btn-sm">
                             <i class="fa fa-search"></i>
                           </button>
@@ -174,7 +174,7 @@
                       <tbody>
 
                        
-                        <tr *ngFor='let item of items | buscar: filtroBusqueda| paginate: { itemsPerPage: 5, currentPage: pageActual } '>
+                        <tr *ngFor='let item of items | paginate: { itemsPerPage: 25, currentPage: pageActual } '>
   
                           <td>{{item.titulo}}</td>
                           <td>{{item.contenido }}</td>
@@ -194,7 +194,7 @@
                         <tr class="footable-paging">
                           <td colspan="5">
                             <div class="footable-pagination-wrapper">
-                              <pagination-controls class="pagination justify-content-center"
+                             <pagination-controls class="pagination justify-content-center"
                                 (pageChange)="pageActual = $event" responsive="true" directionLinks="true" autoHide="true"
                                 previousLabel="" nextLabel="">
                               </pagination-controls>

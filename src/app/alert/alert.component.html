@@ -1,5 +1,3 @@
-
-
 <div class="fix-header fix-sidebar card-no-border">
   <!-- ============================================================== -->
   <!-- Preloader - style you can find in spinners.css -->
@@ -65,7 +63,7 @@
                   <li>
                     <a href="#"><i class="ti-user"></i> Perfil</a>
                   </li>
-                  </ul>
+                </ul>
               </div>
             </li>
             <!-- ============================================================== -->
@@ -101,19 +99,19 @@
         <nav class="sidebar-nav">
           <ul id="sidebarnav">
             <li class="nav-small-cap">Notificaiones</li>
-            <li> <a class="has-arrow waves-effect waves-dark" routerLink=" "  aria-expanded="false"><i
-              class="mdi mdi-gauge"></i><span class="hide-menu">Inicio </span></a>
-          <ul aria-expanded="false" class="collapse">              
+            <li> <a class="has-arrow waves-effect waves-dark" routerLink=" " aria-expanded="false"><i
+                  class="mdi mdi-gauge"></i><span class="hide-menu">Inicio </span></a>
+              <ul aria-expanded="false" class="collapse">
 
-          </ul>
-        </li>
+              </ul>
+            </li>
           </ul>
         </nav>
         <!-- End Sidebar navigation -->
       </div>
       <!-- End Sidebar scroll-->
       <!-- Bottom points-->
-   
+
     </aside>
 
 
@@ -130,53 +128,75 @@
             <h3 class="text-themecolor">Dashboard</h3>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-            
-
               </li>
-              <li class="breadcrumb-item active">Crear Alerta</li>
+              <li class="breadcrumb-item active">Crear Nueva Notificación</li>
             </ol>
           </div>
         </div>
 
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-8">
             <div class="card">
               <div class="card-body">
+                <div [hidden]="enviado">
+                  <form (ngSubmit)="onSubmit()" class="form-group">
+                    <div class="form-group">
+                      <label for="name">Titulo</label>
+                      <input type="text" class="form-control form-control-line" id="titulo" required
+                        [(ngModel)]="alerta.titulo" name="titulo">
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Página</label>
+                      <input type="text" class="form-control form-control-line" id="pagina" disabled
+                         value="https://docs.google.com/forms/d/e/1FAIpQLSdW_e4" 
+                        name="titulo">
+                    </div>
+                    <div class="form-group">
+                      <label>Seleccionar imagen</label>
+                      <input type="file" class="form-control" [(ngModel)]="alerta.imagen" name="imagen" id="imagen"
+                        aria-describedby="fileHelp">
+                    </div>
+                    <div class="form-group">
+                      <label>Tipo Alerta</label>
+                      <select id="tipo" class="form-control" [(ngModel)]="alerta.tipo_alerta" name="tipo_alerta">
+                        <option value="Notificacion">Notificación</option>
+                        <option value="Actualización">Actualización</option>
+                        <option value="Promoción">Promoción</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="age">Contenido</label>
+                      <textarea rows="3" class="form-control form-control-line" id="contenido" required
+                        [(ngModel)]="alerta.contenido" name="contenido"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Repetición</label>
+                      <input type="number" class="form-control form-control-line" id="repeticion" required
+                        [(ngModel)]="alerta.repeticion" name="repeticion">
+                    </div>
+                    <div class="form-group">
+                      <label>Estado</label>
+                      <select id="estado" class="form-control" [(ngModel)]="alerta.estado" name="estado">
+                        <option value="true">Habilitado</option>
+                        <option value="false">Deshabilitado</option>
 
-        
-<div [hidden]="enviado" style="width: 300px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Titulo</label>
-      <input type="text"  class="form-control form-control-line" id="titulo" required [(ngModel)]="alerta.titulo" name="titulo">
-    </div>
- 
-    <div class="form-group">
-      <label for="age">Contenido</label>
-      <textarea rows="3"  class="form-control form-control-line" id="contenido" required [(ngModel)]="alerta.contenido" name="contenido"></textarea>
-    </div>
-    <div class="form-group">
-      <label>Tipo Alerta</label>
-      <select id="tipo"  class="form-control" [(ngModel)]="alerta.tipo_alerta" name="tipo_alerta">
-        <option value="Notificacion">Notificación</option>
-        <option value="Actualización">Actualización</option>
-        <option  value="Promoción">Promoción</option>
-      </select>
-    </div>
- 
-    <button type="submit" class="btn btn-success">Guardar</button>
-  </form>
-</div>
- 
-<div [hidden]="!enviado">
-  <h4>Alerta guardada!</h4>
-  <button class="btn btn-success" (click)="nuevaAlerta()">Nueva Alerta</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+                      </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                  </form>
+                </div>
+
+                <div [hidden]="!enviado">
+                  <h4>Alerta guardada!</h4>
+                  <button class="btn btn-success" (click)="nuevaAlerta()">Nueva Alerta</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+        </div>
 
 
         <div class="right-sidebar">
@@ -304,4 +324,3 @@
   <!-- All Jquery -->
   <!-- ============================================================== -->
 </div>
-
