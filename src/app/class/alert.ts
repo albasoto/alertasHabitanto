@@ -3,5 +3,6 @@ export class Alert {
   titulo: string;
   contenido: string;
   estado:true;
+  tipo_alerta: string
  
 }

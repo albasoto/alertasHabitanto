@@ -8,15 +8,18 @@ import { AngularFireDatabase } from '@angular/fire/database';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  pageActual: number = 1;
+  filtroBusqueda = '';
   title = 'firebase';
-  items: Observable<any[]>;
+  items: any[] = [];
   constructor(db: AngularFireDatabase) {
-    this.items = db.list('alerta').valueChanges();
-   this.items.subscribe(res=>{
-    console.log(res)
-   })
-
+    db.list('alerta').snapshotChanges().subscribe(res => {
+      res.map(res => {
+        var item = res.payload.val()
+        item['key'] = res.key;
+        this.items.push(item);
+      })
+    })
   }
 
   ngOnInit(): void {

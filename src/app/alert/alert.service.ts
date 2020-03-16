@@ -19,4 +19,8 @@ export class AlertService {
   crearAlertaService(alerta: Alert): void {
     this.alertLits.push(alerta);
   }
+
+  modificarAlertaService(item,alerta: Alert): void {
+    this.alertLits.update(item,alerta);
+  }
 }

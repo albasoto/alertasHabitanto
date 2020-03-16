@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'alerta', component: AlertComponent },
+  { path: 'alerta/:id', component: AlertComponent },
 
   
 

@@ -12,12 +12,17 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AlertComponent } from './alert/alert.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { BuscarPipe } from './pipe/buscar.pipe';
+import { BuscardorComponent } from './buscardor/buscardor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlertComponent,
-    DashboardComponent
+    DashboardComponent,
+    BuscarPipe,
+    BuscardorComponent
    ],
   imports: [
     BrowserModule,
@@ -27,7 +32,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
 
 
 
