@@ -6,8 +6,12 @@ Instalar lo siguiente:
 3. npm install ngx-pagination --save
 
 
+
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 ## Documentacion angularfire
 
 https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md
-
-https://www.positronx.io/angular-7-firebase-5-crud-operations-with-reactive-forms/

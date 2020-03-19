@@ -29,7 +29,7 @@
               <!-- dark Logo text -->
               <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
               <!-- Light Logo text -->
-              NOTIFICACIONES
+              
             </span>
           </a>
         </div>
@@ -84,8 +84,7 @@
           <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button"
               aria-haspopup="true" aria-expanded="true">...</a>
             <div class="dropdown-menu animated flipInY">
-              <a href="#" class="dropdown-item"><i class="ti-user"></i> My
-                Profile</a>
+              <a href="#" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
 
 
 
@@ -99,11 +98,8 @@
         <nav class="sidebar-nav">
           <ul id="sidebarnav">
             <li class="nav-small-cap">Notificaiones</li>
-            <li> <a class="has-arrow waves-effect waves-dark" routerLink=" " aria-expanded="false"><i
-                  class="mdi mdi-gauge"></i><span class="hide-menu">Inicio </span></a>
-              <ul aria-expanded="false" class="collapse">
-
-              </ul>
+            <li> <a class="has-arrow waves-effect waves-dark" routerLink=""  aria-expanded="false"><i
+                  class="mdi mdi-gauge"></i><span class="hide-menu">Inicio </span></a>        
             </li>
           </ul>
         </nav>
@@ -128,8 +124,9 @@
             <h3 class="text-themecolor">Dashboard</h3>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
+                <a routerLink="" routerLinkActive="active">Inicio</a>
               </li>
-              <li class="breadcrumb-item active">Crear Nueva Notificación</li>
+              <li class="breadcrumb-item active">Notificación</li>
             </ol>
           </div>
         </div>
@@ -149,18 +146,30 @@
                     <div class="form-group">
                       <label for="name">Página</label>
                       <input type="text" class="form-control form-control-line" id="pagina" disabled
-                         value="https://docs.google.com/forms/d/e/1FAIpQLSdW_e4" 
-                        name="titulo">
+                        value="https://docs.google.com/forms/d/e/1FAIpQLSdW_e4Exj94g8YIAcFv5IXrUl4Sa7zJRnEzqykWgmY4qBTYaQ/viewform"
+                        name="pagina">
                     </div>
                     <div class="form-group">
                       <label>Seleccionar imagen</label>
-                      <input type="file" class="form-control" [(ngModel)]="alerta.imagen" name="imagen" id="imagen"
-                        aria-describedby="fileHelp">
+                      <div class="item">
+                        Progress: {{ (uploadProgress | async) / 100 | percent }}
+                      </div>
+                      <div class="item" style="max-width: 600px">
+                        <section>
+                          <span style="color: grey; font-size: .8em">
+                            {{ uploadURL |async }}
+                          </span>
+                        </section>
+                      </div>
+                      <div class="item">
+                        <input type="file" class="form-control" (change)="upload($event)" accept="image/*">
+                      </div>
                     </div>
+
                     <div class="form-group">
                       <label>Tipo Alerta</label>
                       <select id="tipo" class="form-control" [(ngModel)]="alerta.tipo_alerta" name="tipo_alerta">
-                        <option value="Notificacion">Notificación</option>
+                        <option value="Notificación">Notificación</option>
                         <option value="Actualización">Actualización</option>
                         <option value="Promoción">Promoción</option>
                       </select>
@@ -175,16 +184,12 @@
                       <input type="number" class="form-control form-control-line" id="repeticion" required
                         [(ngModel)]="alerta.repeticion" name="repeticion">
                     </div>
+
                     <div class="form-group">
-                      <label>Estado</label>
-                      <select id="estado" class="form-control" [(ngModel)]="alerta.estado" name="estado">
-                        <option value="true">Habilitado</option>
-                        <option value="false">Deshabilitado</option>
+                      <button type="submit" class="btn btn-success">Guardar</button>
 
-                      </select>
+                      <button routerLink="" routerLinkActive="active" class="btn btn-info">Regresar</button>
                     </div>
-
-                    <button type="submit" class="btn btn-success">Guardar</button>
                   </form>
                 </div>
 
@@ -195,132 +200,15 @@
               </div>
             </div>
           </div>
-      
+
         </div>
 
+        <!-- footer -->
 
-        <div class="right-sidebar">
-          <div class="slimscrollright">
-            <div class="rpanel-title">
-              Service Panel
-              <span><i class="ti-close right-side-toggle"></i></span>
-            </div>
-            <div class="r-panel-body">
-              <ul id="themecolors" class="m-t-20">
-                <li><b>With Light sidebar</b></li>
-                <li>
-                  <a href="javascript:void(0)" data-theme="default" class="default-theme">1</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)" data-theme="green" class="green-theme">2</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)" data-theme="red" class="red-theme">3</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a>
-                </li>
-                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
-                <li>
-                  <a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a>
-                </li>
-              </ul>
-              <ul class="m-t-20 chatonline">
-                <li><b>Chat option</b></li>
-                <li>
-                  <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img"
-                      class="img-circle" />
-                    <span>Varun Dhavan
-                      <small class="text-success">online</small></span></a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img"
-                      class="img-circle" />
-                    <span>Genelia Deshmukh
-                      <small class="text-warning">Away</small></span></a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img"
-                      class="img-circle" />
-                    <span>Ritesh Deshmukh
-                      <small class="text-danger">Busy</small></span></a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img"
-                      class="img-circle" />
-                    <span>Arijit Sinh
-                      <small class="text-muted">Offline</small></span></a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img"
-                      class="img-circle" />
-                    <span>Govinda Star
-                      <small class="text-success">online</small></span></a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img"
-                      class="img-circle" />
-                    <span>John Abraham<small class="text-success">online</small></span></a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img"
-                      class="img-circle" />
-                    <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img"
-                      class="img-circle" />
-                    <span>Pwandeep rajan
-                      <small class="text-success">online</small></span></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Right sidebar -->
-        <!-- ============================================================== -->
+        <footer class="footer">© Un producto de Auconsis</footer>
+
       </div>
-      <!-- ============================================================== -->
-      <!-- End Container fluid  -->
-      <!-- ============================================================== -->
-      <!-- ============================================================== -->
-      <!-- footer -->
-      <!-- ============================================================== -->
-      <footer class="footer">© Un producto de Auconsis</footer>
-      <!-- ============================================================== -->
-      <!-- End footer -->
-      <!-- ============================================================== -->
+
     </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
+
   </div>
-  <!-- ============================================================== -->
-  <!-- End Wrapper -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- All Jquery -->
-  <!-- ============================================================== -->
-</div>
